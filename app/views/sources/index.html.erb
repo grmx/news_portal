@@ -1,0 +1,15 @@
+<% provide(:title, "All sources") %>
+<h1>All sources</h1>
+
+<ul>
+<% @sources.each do |source| %>
+  <li>
+    <%= link_to source.title, source %>
+    [<%= link_to "edit", edit_source_path(source) %>]
+    [<%= link_to "del", source_path(source), method: :delete, 
+                                      data: { confirm: "Are you sure?"} %>]
+  </li>
+<% end %>
+</ul>
+
+<%= link_to "Add new source", new_source_path %>

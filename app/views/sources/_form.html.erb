@@ -1,0 +1,25 @@
+<%= form_for @source do |f| %>
+
+  <div id="errors">
+    <% if @source.errors.any? %>
+      The form contains <%= pluralize(@source.errors.count, "error") %>:
+      <ul>
+        <% @source.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :uri  %>
+  <%= f.url_field :uri %>
+  
+  <%= f.submit %>
+
+<% end %>
