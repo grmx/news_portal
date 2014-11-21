@@ -8,11 +8,44 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |key, value| %>
-    <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-  <% end %>
+  <header>
+    <h1><%= link_to "News portal", "#", class: "logo" %></h1>
+  </header>
+  <section class="content">
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "flash flash-#{key}") %>
+    <% end %>
 
-<%= yield %>
-
+    <%= yield %>
+  </section>
+  <section class="sidebar">
+    <nav>
+      <h2>Navigation</h2>
+      <ul>
+        <li><%= link_to "Home", "#" %></li>
+        <li><%= link_to "About", "#" %></li>
+      </ul>
+      <h2>Sources</h2>
+      <ul>
+        <li><%= link_to "Source #1", "#" %></li>
+        <li><%= link_to "Source #2", "#" %></li>
+        <li><%= link_to "Source #3", "#" %></li>
+        <li><%= link_to "Source #4", "#" %></li>
+        <li><%= link_to "Source #5", "#" %></li>
+        <li><%= link_to "Source #6", "#" %></li>
+      </ul>
+    </nav>
+  </section>
+  <footer>
+    <div class="copyright">
+      &copy; <%= Time.now.year %> <%= link_to "News Portal", "#" %>
+    </div>
+    <nav>
+      <ul>
+        <li><%= link_to "About", "#" %></li>
+        <li><%= link_to "Contact", "#" %></li>
+      </ul>
+    </nav>
+  </footer>
 </body>
 </html>
