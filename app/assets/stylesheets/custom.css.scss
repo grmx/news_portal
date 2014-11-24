@@ -37,6 +37,20 @@ header {
   text-align: center;
 }
 
+.content article {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.content h3 {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+.content article img {
+  width: 100%;
+}
+
 #errors {
   font-size: 14px;
   margin-bottom: 10px;

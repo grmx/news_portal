@@ -41,6 +41,12 @@ class SourcesController < ApplicationController
     redirect_to sources_path, notice: "Source deleted."
   end
   
+  def refresh
+    source = Source.find(params[:id])
+    News.update_from_feed source
+    redirect_to source
+  end
+  
   private
   
   def source_params

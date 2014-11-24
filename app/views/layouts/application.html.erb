@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> · News Portal</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 
                                             'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,7 +9,7 @@
 </head>
 <body>
   <header>
-    <h1><%= link_to "News portal", "#", class: "logo" %></h1>
+    <h1><%= link_to "News portal", root_path, class: "logo" %></h1>
   </header>
   <section class="content">
     <% flash.each do |key, value| %>
@@ -22,7 +22,7 @@
     <nav>
       <h2>Navigation</h2>
       <ul>
-        <li><%= link_to "Home", "#" %></li>
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", "#" %></li>
       </ul>
       <h2>Sources</h2>
@@ -33,6 +33,12 @@
         <li><%= link_to "Source #4", "#" %></li>
         <li><%= link_to "Source #5", "#" %></li>
         <li><%= link_to "Source #6", "#" %></li>
+      </ul>
+      <h2>Admin</h2>
+      <ul>
+        <li><%= link_to "All sources",  sources_path %></li>
+        <li><%= link_to "Add source",   new_source_path %></li>
+        <li><%= link_to "Refresh news", "#" %></li>
       </ul>
     </nav>
   </section>

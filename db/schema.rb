@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119205036) do
+ActiveRecord::Schema.define(version: 20141121144508) do
+
+  create_table "news", force: true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "source_id"
+    t.datetime "date"
+    t.string   "guid"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "news", ["guid"], name: "index_news_on_guid"
+  add_index "news", ["source_id"], name: "index_news_on_source_id"
+  add_index "news", ["title"], name: "index_news_on_title"
 
   create_table "sources", force: true do |t|
     t.string   "title"

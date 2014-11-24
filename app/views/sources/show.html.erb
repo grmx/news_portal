@@ -1,4 +1,10 @@
 <% provide(:title, "#{@source.title}") %>
 <h1><%= @source.title %></h1>
-<p><%= @source.description %></p>
+<% @source.news.each do |entry| %>
+  <article>
+    <h3><%= link_to entry.title, entry.url %></h3>
+    <p><%= sanitize entry.body %></p>
+    <p><%= entry.date.to_formatted_s(:long) %></p>
+  </article>
+<% end %>
 <p><%= link_to "Back to list", sources_path %></p>
