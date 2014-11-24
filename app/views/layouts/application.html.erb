@@ -27,12 +27,9 @@
       </ul>
       <h2>Sources</h2>
       <ul>
-        <li><%= link_to "Source #1", "#" %></li>
-        <li><%= link_to "Source #2", "#" %></li>
-        <li><%= link_to "Source #3", "#" %></li>
-        <li><%= link_to "Source #4", "#" %></li>
-        <li><%= link_to "Source #5", "#" %></li>
-        <li><%= link_to "Source #6", "#" %></li>
+        <% Source.all.each do |source| %>
+        <li><%= link_to source.title, source_path(source) %></li>
+        <% end %>
       </ul>
       <h2>Admin</h2>
       <ul>
