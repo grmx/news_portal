@@ -8,6 +8,7 @@ gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.1.2'
 gem 'turbolinks',   '2.5.2'
 gem 'jbuilder',     '2.2.5'
+gem 'feedjira',     '1.5.0'
 gem 'sdoc',         '0.4.1', group: :doc
 
 group :development, :test do
