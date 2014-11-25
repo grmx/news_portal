@@ -16,4 +16,10 @@ class SourcesControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "title", full_title("All sources")
   end
+  
+  test "should get show" do
+    get :show, id: @source.id
+    assert_response :success
+    assert_select "title", full_title(@source.title)
+  end
 end

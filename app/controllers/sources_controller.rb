@@ -5,6 +5,7 @@ class SourcesController < ApplicationController
   
   def show
     @source = Source.find(params[:id])
+    @source_news = @source.news.by_date
   end
   
   def new
@@ -43,7 +44,7 @@ class SourcesController < ApplicationController
   
   def refresh
     source = Source.find(params[:id])
-    News.update_from_feed source
+    source.news.update_from_feed(source)
     redirect_to source
   end
   

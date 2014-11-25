@@ -2,9 +2,10 @@ require 'test_helper'
 
 class SourceTest < ActiveSupport::TestCase
   def setup
-    @source = Source.new(title: "Example source", 
+    @source = Source.new(id:          1,
+                         title:       "Example source", 
                          description: "Example description",
-                         uri: "http://example.com/atom.xml")
+                         uri:         "http://example.com/atom.xml")
   end
   
   test "should be valid" do
@@ -41,6 +42,7 @@ class SourceTest < ActiveSupport::TestCase
     assert !@source.valid?
   end
   
-
-  
+  test "should contain only news that belong to source" do
+    assert @source.news.all? {|n| n.source == @source}
+  end
 end
