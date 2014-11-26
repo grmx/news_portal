@@ -5,7 +5,8 @@ class SourcesController < ApplicationController
   
   def show
     @source = Source.find(params[:id])
-    @source_news = @source.news.by_date
+    @source_news = @source.news.by_date.paginate(page: params[:page],
+                                                 per_page: 10)
   end
   
   def new
