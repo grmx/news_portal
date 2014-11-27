@@ -3,6 +3,11 @@ class NewsController < ApplicationController
     @sources = Source.all
   end
   
+  def search
+    @news = News.search(params[:search]).by_date.paginate(page: params[:page],
+                                                          per_page: 10)
+  end
+  
   def refresh_all
     @news = News.all
     @news.full_update

@@ -160,6 +160,19 @@ input[type=submit] {
   background-color: #08b3bd;
 }
 
+header .search {
+  position: absolute;
+  top: 11px;
+  right: 30px;
+  width: 40%;
+  margin: 0;
+  padding: 0;
+}
+
+input#search {
+  width: 90%;
+}
+
 a {
   color: #08b3bd;
   text-decoration: none;

@@ -10,6 +10,10 @@
 <body>
   <header>
     <h1><%= link_to "News portal", root_path, class: "logo" %></h1>
+    <%= form_tag(search_path, method: :get, class: "search") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "search..." %>
+      <%#= submit_tag "Search" %>
+    <% end %>
   </header>
   <section class="content">
     <% flash.each do |key, value| %>

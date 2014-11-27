@@ -1,0 +1,11 @@
+<% provide(:title, "Search results") %>
+<h1>Search results</h1>
+
+<% if @news.present? %>
+
+  <%= render 'news/entry' %>
+  <%= will_paginate @news %>
+
+<% else %>
+  <p>There are no news containing the term(s) <%= params[:search] %>.</p>
+<% end %>

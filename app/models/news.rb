@@ -12,6 +12,10 @@ class News < ActiveRecord::Base
       add_entries(feed.entries, source.id)
     end
   end
+  
+  def self.search(search)
+    where("body LIKE ? or title LIKE ?", "%#{search}%", "%#{search}%")
+  end
         
   private
   

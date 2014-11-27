@@ -1,0 +1,9 @@
+<% @news.each do |entry| %>
+  <article>
+    <time pubdate datetime="<%= entry.date %>">
+      <%= entry.date.to_formatted_s(:long) %>
+    </time>
+    <h3><%= link_to entry.title, entry.url %></h3>
+    <p><%= sanitize entry.body %></p>
+  </article>
+<% end %>
