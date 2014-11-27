@@ -6,15 +6,10 @@
                                             'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-  <header>
-    <h1><%= link_to "News portal", root_path, class: "logo" %></h1>
-    <%= form_tag(search_path, method: :get, class: "search") do %>
-      <%= text_field_tag :search, params[:search], placeholder: "search..." %>
-      <%#= submit_tag "Search" %>
-    <% end %>
-  </header>
+  <%= render 'layouts/header' %>
   <section class="content">
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "flash flash-#{key}") %>
@@ -22,47 +17,7 @@
 
     <%= yield %>
   </section>
-  <section class="sidebar">
-    <nav>
-      <% if logged_in? %>
-      <p>Logged as <%= @current_user.email %></p>
-      <% end %>
-      <h2>Navigation</h2>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "About", "#" %></li>
-        <% unless logged_in? %>
-        <li><%= link_to "Sign in", new_sessions_path %></li>
-        <% else %>
-        <li><%= link_to "Sign out", sessions_path, method: :delete %></li>
-        <% end %>
-      </ul>
-      <h2>Sources</h2>
-      <ul>
-        <% Source.all.each do |source| %>
-        <li><%= link_to source.title, source_path(source) %></li>
-        <% end %>
-      </ul>
-      <% if logged_in? %>
-      <h2>Admin</h2>
-      <ul>
-        <li><%= link_to "All sources",  sources_path %></li>
-        <li><%= link_to "Add source",   new_source_path %></li>
-        <li><%= link_to "Refresh news", refresh_all_path %></li>
-      </ul>
-      <% end %>
-    </nav>
-  </section>
-  <footer>
-    <div class="copyright">
-      &copy; <%= Time.now.year %> <%= link_to "News Portal", "#" %>
-    </div>
-    <nav>
-      <ul>
-        <li><%= link_to "About", "#" %></li>
-        <li><%= link_to "Contact", "#" %></li>
-      </ul>
-    </nav>
-  </footer>
+  <%= render 'layouts/sidebar' %>
+  <%= render 'layouts/footer' %>
 </body>
 </html>

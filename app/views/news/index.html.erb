@@ -4,4 +4,5 @@
   <% @news = source.news.latest %>
   <h1><%= source.title %></h1>
   <%= render 'news/entry' %>
+  <p><%= link_to "All news from #{source.title}", source %></p>
 <% end %>

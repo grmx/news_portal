@@ -39,6 +39,6 @@ class News < ActiveRecord::Base
   end
   
   def self.latest
-    by_date.limit(5)
+    by_date.limit(1)
   end
 end
