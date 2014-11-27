@@ -25,3 +25,9 @@ group :test do
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
 end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'unicorn'
+end
