@@ -4,7 +4,7 @@
 <% @source_news.each do |entry| %>
   <article>
     <time pubdate datetime="<%= entry.date %>">
-      <%= entry.date.to_formatted_s(:long) %>
+      <%= entry.date.to_formatted_s(:long) unless entry.date.nil? %>
     </time>
     <h3><%= link_to entry.title, entry.url %></h3>
     <p><%= sanitize entry.body %></p>
