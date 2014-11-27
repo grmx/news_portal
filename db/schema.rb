@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126155537) do
+ActiveRecord::Schema.define(version: 20141127211459) do
 
   create_table "news", force: true do |t|
-    t.string   "title"
+    t.text     "title",      limit: 510
     t.text     "body"
     t.integer  "source_id"
     t.datetime "date"
