@@ -1,6 +1,12 @@
 require 'test_helper'
 
 class SourcesAddTest < ActionDispatch::IntegrationTest
+  def setup
+    @user = users(:one) 
+    get new_sessions_path
+    post sessions_path, session: { email: @user.email, password: 'password' }
+  end
+
   test "add new source page" do
     get new_source_path
     assert_template 'sources/new'

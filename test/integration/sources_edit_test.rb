@@ -3,6 +3,9 @@ require 'test_helper'
 class SourcesEditTest < ActionDispatch::IntegrationTest
   def setup
     @source = sources(:one)
+    @user   = users(:one) 
+    get new_sessions_path
+    post sessions_path, session: { email: @user.email, password: 'password' }
   end
   
   test "unsuccessful edit" do

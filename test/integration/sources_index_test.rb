@@ -3,6 +3,9 @@ require 'test_helper'
 class SourcesTest < ActionDispatch::IntegrationTest
   def setup
     @source = sources(:one)
+    @user   = users(:one) 
+    get new_sessions_path
+    post sessions_path, session: { email: @user.email, password: 'password' }
   end
 
   test "index sources page" do
@@ -16,7 +19,6 @@ class SourcesTest < ActionDispatch::IntegrationTest
     get source_path(@source)
     assert_template 'sources/show'
     assert_select "h1", @source.title
-    assert_select "a[href=?]", sources_path, text: "Back to list"
   end
   
   test "edit source page" do

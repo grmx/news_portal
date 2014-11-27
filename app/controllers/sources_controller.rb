@@ -1,4 +1,6 @@
 class SourcesController < ApplicationController
+  before_action :auth_user, except: [:show]
+
   def index
     @sources = Source.all
   end

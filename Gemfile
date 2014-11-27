@@ -10,7 +10,8 @@ gem 'turbolinks',    '2.5.2'
 gem 'jbuilder',      '2.2.5'
 gem 'feedjira',      '1.5.0'
 gem 'will_paginate', '3.0.7'
-gem 'sdoc',         '0.4.1', group: :doc
+gem 'bcrypt',        '3.1.9'
+gem 'sdoc',          '0.4.1', group: :doc
 
 group :development, :test do
   gem 'sqlite3',     '1.3.10'
