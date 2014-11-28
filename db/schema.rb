@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127211459) do
+ActiveRecord::Schema.define(version: 20141128115915) do
 
   create_table "news", force: true do |t|
     t.text     "title",      limit: 510
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20141127211459) do
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "content"
   end
 
   add_index "news", ["guid"], name: "index_news_on_guid"
