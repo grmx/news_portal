@@ -1,0 +1,9 @@
+<% provide(:title, "#{@news.title} / #{@news.source.title}") %>
+<h1><%= link_to @news.title, @news.url %></h1>
+<article>
+  <time pubdate datetime="<%= @news.date %>">
+    <%= @news.date.to_formatted_s(:long) unless @news.date.nil?%>
+  </time>
+  <%= sanitize(@news.content) || sanitize(@news.body) %>
+</article>
+<p><%= link_to "Back to #{@news.source.title}", @news.source %></p>

@@ -7,3 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create(email: 'admin@example.org', password: 'password')
+Source.create([
+  {
+    title: 'Giant Robots', 
+    description: 'Giant Robots Smashing into Other Giant Robots', 
+    uri: 'http://feeds.feedburner.com/GiantRobotsSmashingIntoOtherGiantRobots' 
+  }
+])

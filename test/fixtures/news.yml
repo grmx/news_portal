@@ -4,6 +4,7 @@ one:
   id: 1
   title: MyString
   body: MyText
+  content: FullContent
   source_id: 1
   date: <%= Time.now.to_s(:db) %>
   url: http://example.com
@@ -12,6 +13,7 @@ two:
   id: 2
   title: MyString
   body: MyText
+  content: FullContent
   source_id: 1
   date: <%= Time.now.to_s(:db) %>
   url: http://example.com

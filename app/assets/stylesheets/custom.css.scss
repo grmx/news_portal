@@ -13,61 +13,55 @@ header {
   background-color: #0c0f0f;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-}
-
-.logo {
-  color: #08b3bd;
-  font: 2em Tahoma, sans-serif;
-  font-weight: 800;
-  text-decoration: none;
-  text-transform: uppercase;
-  position: relative;
-  left: 15px;
-  top: 7px;
+  .logo {
+    color: #08b3bd;
+    font: 2em Tahoma, sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    left: 15px;
+    top: 7px;
+  }
 }
 
 .content {
   float: left;
   width: 80%;
+  h1 {
+    font: 1.4em/1.5em Tahoma;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+  }
+  h3 {
+    font-size: 1.3em;
+    font-weight: 700;
+  }
+  article {
+    margin-bottom: 20px;
+    border-bottom: 3px solid #ddd;
+    img {
+      max-width: 90%;
+      display: block;
+      margin: 5px auto;
+      border: 2px solid #08b3bd;
+    }
+    time {
+      font-size: small;
+      float: right;
+      background: #ddd;
+      border-radius: 4px;
+      padding: 0 3px;
+    }
+  }
+  .pagination {
+    font-size: 20px;
+    text-align: center;
+  }
 }
 
-.content h1 {
-  font: 1.4em/1.5em Tahoma;
-  font-weight: 600;
-  text-align: center;
-  margin: 10px;
-  text-transform: uppercase;
-}
-
-.content article {
-  margin-bottom: 20px;
-  border-bottom: 3px solid #ddd;
-}
-
-.content h3 {
-  font-size: 1.3em;
-  font-weight: 700;
-}
-
-.content article img {
-  max-width: 90%;
-  display: block;
-  margin: 5px auto;
-  border: 2px solid #08b3bd;
-}
-
-.content article time {
-  font-size: small;
-  float: right;
-  background: #ddd;
-  border-radius: 4px;
-  padding: 0 3px;
-}
-
-.content .pagination {
-  font-size: 20px;
-  text-align: center;
-}
 
 #errors {
   font-size: 14px;
@@ -114,21 +108,19 @@ footer {
   border-top: 1px solid #ccc;
   padding-top: 5px;
   margin: 15px 0 10px 0;
-}
-
-.copyright {
-  float: left;
-}
-
-footer nav {
-  margin: 0;
-  padding: 0;
-  float: right;
-  ul {
+  .copyright {
+    float: left;
+  }
+  nav {
     margin: 0;
-    li {
-      display: inline;
-      margin-right: 10px;
+    padding: 0;
+    float: right;
+    ul {
+      margin: 0;
+      li {
+        display: inline;
+        margin-right: 10px;
+      }
     }
   }
 }

@@ -25,6 +25,7 @@ class News < ActiveRecord::Base
         create!(
           title:     entry.title, 
           body:      entry.summary, 
+          content:   entry.content,
           source_id: source_id,
           date:      entry.published,
           guid:      entry.id,

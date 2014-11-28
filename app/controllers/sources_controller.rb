@@ -1,12 +1,12 @@
 class SourcesController < ApplicationController
   before_action :auth_user, except: [:show]
+  before_action :get_source, only: [:show, :edit, :update, :destroy, :refresh]
 
   def index
     @sources = Source.all
   end
   
   def show
-    @source = Source.find(params[:id])
     @source_news = @source.news.by_date.paginate(page: params[:page],
                                                  per_page: 10)
   end
@@ -18,6 +18,7 @@ class SourcesController < ApplicationController
   def create
     @source = Source.new(source_params)
     if @source.save
+      News.update_from_feed(@source)
       redirect_to @source, notice: "The source successfully added."
     else
       flash.now[:alert] = "The form contains some errors!"
@@ -26,11 +27,9 @@ class SourcesController < ApplicationController
   end
   
   def edit
-    @source = Source.find(params[:id])
   end
   
   def update
-    @source = Source.find(params[:id])
     if @source.update(source_params)
       redirect_to @source, notice: "The source successfully updated."
     else
@@ -40,20 +39,22 @@ class SourcesController < ApplicationController
   end
   
   def destroy
-    source = Source.find(params[:id])
-    source.destroy
+    @source.destroy
     redirect_to sources_path, notice: "Source deleted."
   end
   
   def refresh
-    source = Source.find(params[:id])
-    source.news.update_from_feed(source)
-    redirect_to source
+    @source.news.update_from_feed(@source)
+    redirect_to @source
   end
   
   private
   
   def source_params
     params.require(:source).permit(:title, :description, :uri)
+  end
+  
+  def get_source
+    @source = Source.find(params[:id])
   end
 end
