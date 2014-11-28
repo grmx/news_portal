@@ -3,5 +3,5 @@ class Source < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 255 }
   validates :uri,         presence: true, length: { maximum: 255 }
   
-  has_many :news
+  has_many :news, dependent: :destroy
 end
